@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Articles from "./pages/Articles";
 import Article from "./pages/Article";
+import Layout from "./pages/Layout";
 
 // MyPage와 Setting 페이지 추가 해보기
 // Home에서 About,MyPage,Setting 페이지 링크 보여주고 이동
@@ -18,13 +19,16 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/MyPage" element={<MyPage />} />
-        <Route path="/Setting" element={<Setting />} />
-        <Route path="/Profiles/:username" element={<Profile />} />
-        <Route path="/Articles" element={<Articles />} />
-        <Route path="/Articles/:id" element={<Article />} />
+        <Route element={<Layout />}>
+          <Route path="/Home" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/MyPage" element={<MyPage />} />
+          <Route path="/Setting" element={<Setting />} />
+          <Route path="/Profiles/:username" element={<Profile />} />
+          <Route path="/Articles" element={<Articles />}>
+            <Route path="/Articles/:id" element={<Article />} />
+          </Route>
+        </Route>
       </Routes>
     </Router>
   );
