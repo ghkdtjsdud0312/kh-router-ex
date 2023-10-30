@@ -25,6 +25,9 @@ const Home = () => {
         <li>
           <Link to="/profiles/database">database 프로필</Link>
         </li>
+        <li>
+          <Link to="/articles">게시판 목록</Link>
+        </li>
       </ul>
     </>
   );
